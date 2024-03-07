@@ -1,0 +1,18 @@
+.carousel {
+    height: 400px;
+}
+
+.carousel-item img {
+    height: 400px;
+    width: 100%;
+}
+
+.card{
+    margin: 5%
+}
+
+.content {
+    text-align: center;
+}
+
+
