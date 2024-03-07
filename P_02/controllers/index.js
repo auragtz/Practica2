@@ -70,7 +70,7 @@ console.table(shoppingCart);
 shoppingCart.updateItem('Gutierrez743962_Poto', 5);
 shoppingCart.removeItem('Gutierrez743962_Poto2');
 
-console.log('Total de la compra:', shoppingCart.calculateTotal());*/
+console.log('Total de la compra:', shoppingCart.calculateTotal());
 
 // 6. Crear un ShoppingCart e agregar 3 productos
 const shoppingCart = new ShoppingCart();
@@ -84,12 +84,12 @@ console.log(shoppingCart);
 console.log("---- AGREGANDO SEGUNDO PRODUCTO AL CARRITO ----");
 shoppingCart.addItem(product3.getUuid(), 2);
 console.log("SEGUNDO PRODUCTO AGREGADO AL CARRITO:");
-console.table(shoppingCart);
+console.log(shoppingCart);
 
 console.log("---- AGREGANDO TERCER PRODUCTO AL CARRITO ----");
 shoppingCart.addItem(product4.getUuid(), 1);
 console.log("TERCER PRODUCTO AGREGADO AL CARRITO:");
-console.table(shoppingCart);
+console.log(shoppingCart);
 
 // 7. Actualizar la cantidad de un producto en el ShoppingCart
 console.log("7. Actualizar la cantidad de un producto en el ShoppingCart");
@@ -107,7 +107,14 @@ console.table(shoppingCart);
 
 // 9. Verificar el total en el carrito de compras
 console.log("9. Verificar el total en el carrito de compras");
-console.log('Total de la compra:', shoppingCart.calculateTotal());
+console.log('Total de la compra:', shoppingCart.calculateTotal());*/
+const cart = new ShoppingCart();
+cart.addItem(product1.uuid, 3); // Add 3 units of product1
+cart.addItem(product3.uuid, 2); // Add 2 units of product2
+cart.addItem(product4.uuid, 4); // Add 4 units of product3
 
+console.log('Total value:', cart.calculateTotal());
+console.table(cart.products);
 
-
+// Update product1 quantity
+cart.updateItem(product1.uuid, 6); // Update
