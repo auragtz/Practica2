@@ -56,72 +56,36 @@ try {
     console.error(error.errorMessage);
 }
 
-// 6. Agregar 3 productos a un ShoppingCart
-const shoppingCart = [];
-console.log("6. Agregar 3 productos a un ShoppingCart");
-console.log("---- AGREGANDO PRIMER PRODUCTO ----");
-shoppingCart.addItem(product1.uuid, 1);
-console.log("PRIMER PRODUCTO AGREGADO:");
-console.table(shoppingCart);
+const cart = new ShoppingCart();
 
-console.log("---- AGREGANDO SEGUNDO PRODUCTO ----");
-shoppingCart.addItem(product2.uuid, 1);
-console.log("SEGUNDO PRODUCTO AGREGADO:");
-console.table(shoppingCart);
+// Agregando productos al carrito
+cart.addItem(product1.uuid, 2); // Agregar 2 unidades del producto 1
+cart.addItem(product3.uuid, 1); // Agregar 1 unidad del producto 2
+cart.addItem(product4.uuid, 3); // Agregar 3 unidades del producto 3
 
-console.log("---- AGREGANDO TERCER PRODUCTO ----");
-shoppingCart.addItem(product3.uuid, 1);
-console.log("TERCER PRODUCTO AGREGADO:");
-console.table(shoppingCart);
+// Imprimiendo el carrito completo
+console.log("Carrito después de agregar productos:");
+console.table(cart.proxies);
 
-/*
-// 7. Actualizar la cantidad de un producto en el carrito
-product1.quantity = 2;
-console.log("Prueba 7: Carrito de compras actualizado:");
-console.table(shoppingCart);
+// Actualizando la cantidad de un producto en el carrito
+cart.updateItem('product1_uuid', 5); // Actualizar a 5 unidades del producto 1
 
-// Prueba 7: Actualizar la cantidad de un producto en el carrito
-console.log("Prueba 7: Actualizar la cantidad de un producto en el carrito");
-shoppingCart.updateItem(product1.uuid, 3); // Cambia la cantidad del primer producto
-console.log("Carrito de compras actualizado:");
-console.table(shoppingCart.proxies);
+// Imprimiendo el carrito después de la actualización
+console.log("Carrito después de actualizar la cantidad:");
+console.table(cart.proxies);
 
-// Prueba 8: Eliminar un producto del carrito
-console.log("Prueba 8: Eliminar un producto del carrito");
-shoppingCart.removeItem(product2.uuid); // Elimina el producto 2
-console.log("Carrito de compras después de eliminar un producto:");
-console.table(shoppingCart.proxies);
+// Eliminando un producto del carrito
+cart.removeItem('product2_uuid'); // Eliminar producto 2
 
-// Prueba 9: Verificar los totales en el carrito de compras
-console.log("Prueba 9: Verificar los totales en el carrito de compras");
-const total = shoppingCart.calculateTotal();
-console.log("Total del carrito:", total);*/
+// Imprimiendo el carrito después de eliminar un producto
+console.log("Carrito después de eliminar un producto:");
+console.table(cart.proxies);
 
-// Crear un nuevo objeto ShoppingCart
-//const shoppingCart = new ShoppingCart();
+// Verificando el total en el carrito de compras
+const total = cart.calculateTotal();
+console.log("Total en el carrito de compras:", total);
 
-// Agregar 3 elementos al carrito
-addItem(shoppingCart, product1.uuid, 2);
-addItem(shoppingCart, product2.uuid, 1);
-addItem(shoppingCart, product3.uuid, 3);
 
-// Mostrar los elementos agregados
-console.log("Elementos agregados al carrito:");
-console.table(shoppingCart.proxies);
-
-// Actualizar la cantidad de un producto en el carrito
-updateItem(shoppingCart, product1.uuid, 5); // Cambiar la cantidad del primer producto
-console.log("Carrito de compras actualizado:");
-console.table(shoppingCart.proxies);
-
-// Eliminar un producto del carrito
-removeItem(shoppingCart, product2.uuid); // Eliminar el producto 2
-console.log("Carrito de compras después de eliminar un producto:");
-console.table(shoppingCart.proxies);
-
-// Verificar el total en el carrito de compras
-const total = calculateTotal(shoppingCart);
-console.log("Total del carrito:", total);
 
 
 
