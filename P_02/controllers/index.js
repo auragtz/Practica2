@@ -60,8 +60,8 @@ const cart = new ShoppingCart();
 
 // Agregando productos al carrito
 cart.addItem(product1.uuid, 2); // Agregar 2 unidades del producto 1
-cart.addItem(product3.uuid, 1); // Agregar 1 unidad del producto 2
-cart.addItem(product4.uuid, 3); // Agregar 3 unidades del producto 3
+cart.addItem(product3.uuid, 1); // Agregar 1 unidad del producto 3
+cart.addItem(product4.uuid, 3); // Agregar 3 unidades del producto 4
 
 // Imprimiendo el carrito completo
 console.log("Carrito después de agregar productos:");
@@ -75,17 +75,15 @@ console.log("Carrito después de actualizar la cantidad:");
 console.table(cart.proxies);
 
 // Eliminando un producto del carrito
-cart.removeItem('product2_uuid'); // Eliminar producto 2
+cart.removeItem('product2_uuid'); // Intentando eliminar un producto que no está en el carrito
 
 // Imprimiendo el carrito después de eliminar un producto
-console.log("Carrito después de eliminar un producto:");
+console.log("Carrito después de intentar eliminar un producto que no está en el carrito:");
 console.table(cart.proxies);
 
 // Verificando el total en el carrito de compras
 const total = cart.calculateTotal();
 console.log("Total en el carrito de compras:", total);
-
-
 
 
 
