@@ -17,28 +17,17 @@ function deleteProduct(uuid) {
 }
 
 function updateProduct(uuid, updatedProduct) {
-    let product = products.find(p => p.uuid === uuid);
+    const product = products.find(p => p.uuid === uuid);
     if (product) {
-        for (let key in updatedProduct) {
-            
-            if (product.hasOwnProperty('_title')) {     
-                product[key] = updatedProduct[key];
+        for (const key in updatedProduct) {
+            if (updatedProduct.hasOwnProperty(key)) {
+                if (product.hasOwnProperty(key)) {
+                    product[key] = updatedProduct[key];
+                }
             }
         }
     }
 }
-/*
-function updateProduct(uuid, updatedProduct) {
-    let product = products.find(p => p.uuid === uuid);
-    if (product) {
-        for (let key in updatedProduct) {
-            
-            if (product.hasOwnProperty('_title')) {     
-                product[key] = updatedProduct[key];
-            }
-        }
-    }
-}*/
 
 function findProduct(query) {
     let [category, title] = query.split(':').map(s => s.trim());

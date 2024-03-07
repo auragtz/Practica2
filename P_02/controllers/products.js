@@ -101,7 +101,7 @@ class Product {
             throw new ProductException('Empty category');
         }
         this.category = category;
-    }
+    } 
 
     static createFromJson(jsonValue) {
         try {
@@ -116,7 +116,7 @@ class Product {
                 parsedObject.category
             );
         } catch (error) {
-            throw new ProductException('Error al crear el producto desde JSON: ' + error.message);
+            throw new ProductException('Error: ' + error.message);
         }
     }
 

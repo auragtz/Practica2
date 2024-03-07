@@ -5,7 +5,7 @@ const product4 = new Product('Gutierrez743962_Poto4', 'Descripción del producto
 
 // 1. Imprimir arreglo de productos vacío
 console.log("1. Imprimir arreglo de productos vacío");
-console.table(dataHandler.getProducts());
+console.table(dataHandler.getProducts()); 
 
 // 2. Agregar 4 productos
 console.log("2. Agregar 4 productos");
@@ -48,43 +48,66 @@ dataHandler.deleteProduct(product2.uuid);
 console.log("SEGUNDO PRODUCTO ELIMINADO:");
 console.table(dataHandler.getProducts());
 
-// 5. Impresión de una excepción
-console.log("5. Impresión de una excepción");
-try {
-    throw new ProductException("¡Esto es una excepción simulada!");
-} catch (error) {
-    console.error(error.errorMessage);
-}
+/*
+const shoppingCart = new ShoppingCart();
+// 6. Agregar 3 productos a un ShoppingCart
+console.log("6. Agregar 3 productos a un ShoppingCart");
+console.log("---- AGREGANDO PRIMER PRODUCTO ----");
+shoppingCart.addItem(product1.uuid, 1);
+console.log("PRIMER PRODUCTO AGREGADO:");
+console.table(shoppingCart);
 
-const cart = new ShoppingCart();
+console.log("---- AGREGANDO SEGUNDO PRODUCTO ----");
+shoppingCart.addItem(product3.uuid, 1);
+console.log("SEGUNDO PRODUCTO AGREGADO:");
+console.table(shoppingCart);
 
-// Agregando productos al carrito
-cart.addItem(product1.uuid, 2); // Agregar 2 unidades del producto 1
-cart.addItem(product3.uuid, 1); // Agregar 1 unidad del producto 3
-cart.addItem(product4.uuid, 3); // Agregar 3 unidades del producto 4
+console.log("---- AGREGANDO TERCER PRODUCTO ----");
+shoppingCart.addItem(product4.uuid, 1);
+console.log("TERCER PRODUCTO AGREGADO:");
+console.table(shoppingCart);
 
-// Imprimiendo el carrito completo
-console.log("Carrito después de agregar productos:");
-console.table(cart.proxies);
+shoppingCart.updateItem('Gutierrez743962_Poto', 5);
+shoppingCart.removeItem('Gutierrez743962_Poto2');
 
-// Actualizando la cantidad de un producto en el carrito
-cart.updateItem('product1_uuid', 5); // Actualizar a 5 unidades del producto 1
+console.log('Total de la compra:', shoppingCart.calculateTotal());*/
 
-// Imprimiendo el carrito después de la actualización
-console.log("Carrito después de actualizar la cantidad:");
-console.table(cart.proxies);
+// 6. Crear un ShoppingCart e agregar 3 productos
+const shoppingCart = new ShoppingCart();
+console.log("6. Agregar 3 productos a un ShoppingCart");
 
-// Eliminando un producto del carrito
-cart.removeItem('product2_uuid'); // Intentando eliminar un producto que no está en el carrito
+console.log("---- AGREGANDO PRIMER PRODUCTO AL CARRITO ----");
+shoppingCart.addItem(product1.getUuid(), 3);
+console.log("PRIMER PRODUCTO AGREGADO AL CARRITO:");
+console.log(shoppingCart);
 
-// Imprimiendo el carrito después de eliminar un producto
-console.log("Carrito después de intentar eliminar un producto que no está en el carrito:");
-console.table(cart.proxies);
+console.log("---- AGREGANDO SEGUNDO PRODUCTO AL CARRITO ----");
+shoppingCart.addItem(product3.getUuid(), 2);
+console.log("SEGUNDO PRODUCTO AGREGADO AL CARRITO:");
+console.table(shoppingCart);
 
-// Verificando el total en el carrito de compras
-const total = cart.calculateTotal();
-console.log("Total en el carrito de compras:", total);
+console.log("---- AGREGANDO TERCER PRODUCTO AL CARRITO ----");
+shoppingCart.addItem(product4.getUuid(), 1);
+console.log("TERCER PRODUCTO AGREGADO AL CARRITO:");
+console.table(shoppingCart);
 
+// 7. Actualizar la cantidad de un producto en el ShoppingCart
+console.log("7. Actualizar la cantidad de un producto en el ShoppingCart");
+console.log("---- ACTUALIZANDO CANTIDAD DEL PRIMER PRODUCTO EN EL CARRITO ----");
+shoppingCart.updateItem(product1.getUuid(), 5);
+console.log("CANTIDAD DEL PRIMER PRODUCTO ACTUALIZADA:");
+console.table(shoppingCart);
+
+// 8. Eliminar un producto del ShoppingCart
+console.log("8. Eliminar un producto del ShoppingCart");
+console.log("---- ELIMINANDO SEGUNDO PRODUCTO DEL CARRITO ----");
+shoppingCart.removeItem(product4.getUuid());
+console.log("SEGUNDO PRODUCTO ELIMINADO DEL CARRITO:");
+console.table(shoppingCart);
+
+// 9. Verificar el total en el carrito de compras
+console.log("9. Verificar el total en el carrito de compras");
+console.log('Total de la compra:', shoppingCart.calculateTotal());
 
 
 

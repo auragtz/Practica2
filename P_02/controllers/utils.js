@@ -4,4 +4,4 @@ function generateUUID() {
     let v = c == 'x' ? r : (r & 0x3 | 0x8);
     return v.toString(16);
     });
-}
+} 
