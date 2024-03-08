@@ -47,30 +47,7 @@ console.log("---- ELIMINANDO SEGUNDO PRODUCTO ----");
 dataHandler.deleteProduct(product2.uuid);
 console.log("SEGUNDO PRODUCTO ELIMINADO:");
 console.table(dataHandler.getProducts());
-
 /*
-const shoppingCart = new ShoppingCart();
-// 6. Agregar 3 productos a un ShoppingCart
-console.log("6. Agregar 3 productos a un ShoppingCart");
-console.log("---- AGREGANDO PRIMER PRODUCTO ----");
-shoppingCart.addItem(product1.uuid, 1);
-console.log("PRIMER PRODUCTO AGREGADO:");
-console.table(shoppingCart);
-
-console.log("---- AGREGANDO SEGUNDO PRODUCTO ----");
-shoppingCart.addItem(product3.uuid, 1);
-console.log("SEGUNDO PRODUCTO AGREGADO:");
-console.table(shoppingCart);
-
-console.log("---- AGREGANDO TERCER PRODUCTO ----");
-shoppingCart.addItem(product4.uuid, 1);
-console.log("TERCER PRODUCTO AGREGADO:");
-console.table(shoppingCart);
-
-shoppingCart.updateItem('Gutierrez743962_Poto', 5);
-shoppingCart.removeItem('Gutierrez743962_Poto2');
-
-console.log('Total de la compra:', shoppingCart.calculateTotal());
 
 // 6. Crear un ShoppingCart e agregar 3 productos
 const shoppingCart = new ShoppingCart();
@@ -107,14 +84,42 @@ console.table(shoppingCart);
 
 // 9. Verificar el total en el carrito de compras
 console.log("9. Verificar el total en el carrito de compras");
-console.log('Total de la compra:', shoppingCart.calculateTotal());*/
-const cart = new ShoppingCart();
-cart.addItem(product1.uuid, 3); // Add 3 units of product1
-cart.addItem(product3.uuid, 2); // Add 2 units of product2
-cart.addItem(product4.uuid, 4); // Add 4 units of product3
+console.log('Total de la compra:', shoppingCart.calculateTotal());
+*/
+//6. Crear un ShoppingCart e agregar 3 productos
 
-console.log('Total value:', cart.calculateTotal());
-console.table(cart.products);
+const shoppingCart = new ShoppingCart();
+console.log("6. Agregar 3 productos a un ShoppingCart");
 
-// Update product1 quantity
-cart.updateItem(product1.uuid, 6); // Update
+console.log("---- AGREGANDO PRIMER PRODUCTO AL CARRITO ----");
+shoppingCart.addItem(product1.getUuid(), 3);
+console.log("PRIMER PRODUCTO AGREGADO AL CARRITO:");
+console.table(shoppingCart.products);
+
+console.log("---- AGREGANDO SEGUNDO PRODUCTO AL CARRITO ----");
+shoppingCart.addItem(product3.getUuid(), 2);
+console.log("SEGUNDO PRODUCTO AGREGADO AL CARRITO:");
+console.table(shoppingCart.products);
+
+console.log("---- AGREGANDO TERCER PRODUCTO AL CARRITO ----");
+shoppingCart.addItem(product4.getUuid(), 1);
+console.log("TERCER PRODUCTO AGREGADO AL CARRITO:");
+console.table(shoppingCart.products);
+
+// 7. Actualizar la cantidad de un producto en el ShoppingCart
+console.log("7. Actualizar la cantidad de un producto en el ShoppingCart");
+console.log("---- ACTUALIZANDO CANTIDAD DEL PRIMER PRODUCTO EN EL CARRITO ----");
+shoppingCart.updateItem(product1.getUuid(), 5);
+console.log("CANTIDAD DEL PRIMER PRODUCTO ACTUALIZADA:");
+console.table(shoppingCart.products);
+
+// 8. Eliminar un producto del ShoppingCart
+console.log("8. Eliminar un producto del ShoppingCart");
+console.log("---- ELIMINANDO SEGUNDO PRODUCTO DEL CARRITO ----");
+shoppingCart.removeItem(product4.getUuid());
+console.log("SEGUNDO PRODUCTO ELIMINADO DEL CARRITO:");
+console.table(shoppingCart.products);
+
+// 9. Verificar el total en el carrito de compras
+//console.log("9. Verificar el total en el carrito de compras");
+//console.log('Total de la compra:', shoppingCart.calculateTotal());
